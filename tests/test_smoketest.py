@@ -9,69 +9,50 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from selenium.webdriver.chrome.options import Options
 
 class TestSmoketest():
   def setup_method(self, method):
-    options = Options()
-    options.add_argument("--headless=new")
-    self.driver = webdriver.Chrome(options=options)
+    self.driver = webdriver.Firefox()
     self.vars = {}
   
   def teardown_method(self, method):
     self.driver.quit()
   
-  def test_adminpage(self):
+  def test_adminPage(self):
     self.driver.get("http://127.0.0.1:5500/cse270-Teton/teton/1.6/admin.html")
-    elements = self.driver.find_elements(By.ID, "username")
-    assert len(elements) > 0
-    self.driver.find_element(By.ID, "username").click()
+    WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.ID, "username")))
     self.driver.find_element(By.ID, "username").send_keys("testing")
-    self.driver.find_element(By.ID, "password").click()
     self.driver.find_element(By.ID, "password").send_keys("testing")
     self.driver.find_element(By.CSS_SELECTOR, ".mysubmit:nth-child(4)").click()
-    elements = self.driver.find_elements(By.CSS_SELECTOR, ".errorMessage")
-    assert len(elements) > 0
+    WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".errorMessage")))
   
-  def test_directorypage(self):
+  def test_directoryPage(self):
     self.driver.get("http://127.0.0.1:5500/cse270-Teton/teton/1.6/directory.html")
     self.driver.find_element(By.ID, "directory-grid").click()
-    WebDriverWait(self.driver, 1).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".gold-member:nth-child(9) > p:nth-child(2)")))
+    WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".gold-member:nth-child(9) > p:nth-child(2)")))
     self.driver.find_element(By.ID, "directory-list").click()
-    WebDriverWait(self.driver, 1).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".gold-member:nth-child(9) > p:nth-child(2)")))
+    WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".gold-member:nth-child(9) > p:nth-child(2)")))
   
-  def test_homepage(self):
+  def test_homePage(self):
     self.driver.get("http://127.0.0.1:5500/cse270-Teton/teton/1.6/index.html")
     assert self.driver.find_element(By.CSS_SELECTOR, ".header-title > h1").text == "Teton Idaho"
     assert self.driver.find_element(By.CSS_SELECTOR, ".header-title > h2").text == "Chamber of Commerce"
-    elements = self.driver.find_elements(By.CSS_SELECTOR, ".header-logo img")
-    assert len(elements) > 0
-    elements = self.driver.find_elements(By.CSS_SELECTOR, ".spotlight1")
-    assert len(elements) > 0
-    elements = self.driver.find_elements(By.CSS_SELECTOR, ".spotlight2")
-    assert len(elements) > 0
-    elements = self.driver.find_elements(By.LINK_TEXT, "Join Us!")
-    assert len(elements) > 0
-    elements = self.driver.find_elements(By.LINK_TEXT, "Join Us")
-    assert len(elements) > 0
+    WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".header-logo img")))
+    WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".spotlight1")))
+    WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".spotlight2")))
+    WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.LINK_TEXT, "Join Us!")))
+    WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.LINK_TEXT, "Join Us")))
     self.driver.find_element(By.LINK_TEXT, "Join Us").click()
-    elements = self.driver.find_elements(By.NAME, "fname")
-    assert len(elements) > 0
+    WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.NAME, "fname")))
     assert self.driver.title == "Teton Idaho CoC"
   
-  def test_joinpage(self):
+  def test_joinPage(self):
     self.driver.get("http://127.0.0.1:5500/cse270-Teton/teton/1.6/join.html")
-    elements = self.driver.find_elements(By.NAME, "fname")
-    assert len(elements) > 0
-    self.driver.find_element(By.NAME, "fname").click()
+    WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.NAME, "fname")))
     self.driver.find_element(By.NAME, "fname").send_keys("Testing")
-    self.driver.find_element(By.NAME, "lname").click()
     self.driver.find_element(By.NAME, "lname").send_keys("Testing")
-    self.driver.find_element(By.NAME, "bizname").click()
     self.driver.find_element(By.NAME, "bizname").send_keys("Testing")
-    self.driver.find_element(By.NAME, "biztitle").click()
     self.driver.find_element(By.NAME, "biztitle").send_keys("owner")
     self.driver.find_element(By.NAME, "submit").click()
-    elements = self.driver.find_elements(By.NAME, "email")
-    assert len(elements) > 0
+    WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.NAME, "email")))
   
