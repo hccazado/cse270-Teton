@@ -11,7 +11,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.chrome.options import Options
 
-
 class TestSmoketest():
   def setup_method(self, method):
     options = Options()
@@ -23,7 +22,7 @@ class TestSmoketest():
     self.driver.quit()
   
   def test_adminPage(self):
-    self.driver.get("http://127.0.0.1:5500/cse270-Teton/teton/1.6/admin.html")
+    self.driver.get("https://hccazado.github.io/cse270-Teton/admin.html")
     WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.ID, "username")))
     self.driver.find_element(By.ID, "username").send_keys("testing")
     self.driver.find_element(By.ID, "password").send_keys("testing")
@@ -31,14 +30,14 @@ class TestSmoketest():
     WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".errorMessage")))
   
   def test_directoryPage(self):
-    self.driver.get("http://127.0.0.1:5500/cse270-Teton/teton/1.6/directory.html")
+    self.driver.get("https://hccazado.github.io/cse270-Teton/directory.html")
     self.driver.find_element(By.ID, "directory-grid").click()
     WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".gold-member:nth-child(9) > p:nth-child(2)")))
     self.driver.find_element(By.ID, "directory-list").click()
     WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".gold-member:nth-child(9) > p:nth-child(2)")))
   
   def test_homePage(self):
-    self.driver.get("http://127.0.0.1:5500/cse270-Teton/teton/1.6/index.html")
+    self.driver.get("https://hccazado.github.io/cse270-Teton/index.html")
     assert self.driver.find_element(By.CSS_SELECTOR, ".header-title > h1").text == "Teton Idaho"
     assert self.driver.find_element(By.CSS_SELECTOR, ".header-title > h2").text == "Chamber of Commerce"
     WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".header-logo img")))
@@ -51,7 +50,7 @@ class TestSmoketest():
     assert self.driver.title == "Teton Idaho CoC"
   
   def test_joinPage(self):
-    self.driver.get("http://127.0.0.1:5500/cse270-Teton/teton/1.6/join.html")
+    self.driver.get("https://hccazado.github.io/cse270-Teton/join.html")
     WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.NAME, "fname")))
     self.driver.find_element(By.NAME, "fname").send_keys("Testing")
     self.driver.find_element(By.NAME, "lname").send_keys("Testing")

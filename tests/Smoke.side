@@ -1,0 +1,243 @@
+{
+  "id": "teton-smoke-tests",
+  "version": "2.0",
+  "name": "Smoke",
+  "url": "http://127.0.0.1:5500/cse270-Teton/teton/1.6/join.html",
+  "tests": [{
+    "id": "test-adminpage",
+    "name": "Admin Page",
+    "commands": [{
+      "id": "c9085650-ca4e-49eb-a264-95f7e11fe503",
+      "comment": "",
+      "command": "open",
+      "target": "https://hccazado.github.io/cse270-Teton/admin.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "07c9ff4e-b07f-4e69-b20e-03357ab4f37e",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "id=username",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "68e993fb-19c0-43f5-ba05-9a1f5d07eaa4",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [],
+      "value": "testing"
+    }, {
+      "id": "4d364757-ced1-476b-a47a-901bc8bf9eb5",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [],
+      "value": "testing"
+    }, {
+      "id": "05415d82-4706-4b76-a3c2-92b3bef3567b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mysubmit:nth-child(4)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0ec3ee70-a172-4583-9a19-e124bda859e6",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.errorMessage",
+      "targets": [],
+      "value": "30000"
+    }]
+  }, {
+    "id": "test-directorypage",
+    "name": "Directory Page",
+    "commands": [{
+      "id": "9ca2acd0-1ef5-42f9-8479-96fe067ea7c3",
+      "comment": "",
+      "command": "open",
+      "target": "https://hccazado.github.io/cse270-Teton/directory.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "28acf1e0-169c-4580-bfe5-ec65d23f53b8",
+      "comment": "",
+      "command": "click",
+      "target": "id=directory-grid",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d5f3581f-afbb-4bd1-8e50-838eec1071b5",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.gold-member:nth-child(9) > p:nth-child(2)",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "3850b20f-b3d9-45d7-8a93-2baad4dfb934",
+      "comment": "",
+      "command": "click",
+      "target": "id=directory-list",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3d30d5c7-70eb-4923-9ca4-31f1f14ccff2",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.gold-member:nth-child(9) > p:nth-child(2)",
+      "targets": [],
+      "value": "30000"
+    }]
+  }, {
+    "id": "test-homepage",
+    "name": "Home Page",
+    "commands": [{
+      "id": "27034f9f-8ac1-42ce-9425-04dda72da5bf",
+      "comment": "",
+      "command": "open",
+      "target": "https://hccazado.github.io/cse270-Teton/index.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f682c30e-e9c2-45b7-a027-840a058aa683",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.header-title > h1",
+      "targets": [],
+      "value": "Teton Idaho"
+    }, {
+      "id": "1124c3e8-dcf9-4ec0-b2e3-1da9c6324e8a",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.header-title > h2",
+      "targets": [],
+      "value": "Chamber of Commerce"
+    }, {
+      "id": "f4382bb2-7f91-4c92-a62f-aee8200cdcab",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.header-logo img",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "ab752837-9710-42aa-9236-40af79f30272",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.spotlight1",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "30ec5167-231b-48af-8c39-ac34102c798a",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.spotlight2",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "0a2e724b-dc05-4727-beea-06d89ef726fc",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "linkText=Join Us!",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "3d231516-7410-4e18-b2a9-d9f66a12c4e9",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "linkText=Join Us",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "7bbdad73-4511-4d11-a98e-cb1be5209166",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Join Us",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ac1718ce-8c08-45f0-86c0-64280d629acd",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "name=fname",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "c478a46c-94a8-4b5e-ac39-ed72c174c83d",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "Teton Idaho CoC",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "test-joinpage",
+    "name": "Join Page",
+    "commands": [{
+      "id": "ce72c9ff-fc5e-44de-a796-50f8f61cf8d9",
+      "comment": "",
+      "command": "open",
+      "target": "https://hccazado.github.io/cse270-Teton/join.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "92e500dc-9375-4518-9da5-dcd853e13c31",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "name=fname",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "277a7030-b4a2-43e6-8d43-b7671eec3304",
+      "comment": "",
+      "command": "type",
+      "target": "name=fname",
+      "targets": [],
+      "value": "Testing"
+    }, {
+      "id": "123d2606-338d-4713-bf53-15928c3aac8f",
+      "comment": "",
+      "command": "type",
+      "target": "name=lname",
+      "targets": [],
+      "value": "Testing"
+    }, {
+      "id": "b27438a0-d849-4ec1-afdc-0857ece82f78",
+      "comment": "",
+      "command": "type",
+      "target": "name=bizname",
+      "targets": [],
+      "value": "Testing"
+    }, {
+      "id": "a7f97333-6bfa-41ac-be21-37c187895174",
+      "comment": "",
+      "command": "type",
+      "target": "name=biztitle",
+      "targets": [],
+      "value": "owner"
+    }, {
+      "id": "b994007e-2ee4-48ea-a4f6-70418fe19ccf",
+      "comment": "",
+      "command": "click",
+      "target": "name=submit",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a0b43027-89ea-4e82-a41a-a0b0296b7d01",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "name=email",
+      "targets": [],
+      "value": "30000"
+    }]
+  }],
+  "suites": [{
+    "id": "suite-1",
+    "name": "Smoke test",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["test-adminpage", "test-directorypage", "test-homepage", "test-joinpage"]
+  }],
+  "urls": ["http://127.0.0.1:5500/cse270-Teton/teton/1.6/join.html"],
+  "plugins": []
+}
